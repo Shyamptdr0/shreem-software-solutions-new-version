@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +15,8 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const pathname = usePathname();
 
   return (
     <>
@@ -74,16 +77,27 @@ export default function Navbar() {
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-6 text-xl font-bold text-gray-800">
-          <Link href="/case-studies" onClick={() => setIsMenuOpen(false)}>Case studies</Link>
-          <Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-          <Link href="/expertise" onClick={() => setIsMenuOpen(false)}>Expertise</Link>
-          <Link href="/delivery" onClick={() => setIsMenuOpen(false)}>How we deliver</Link>
-          <Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+        <div className="flex flex-col items-center justify-center h-full space-y-6 text-xl font-bold">
+          {[
+            { href: "/case-studies", label: "Case studies" },
+            { href: "/services", label: "Services" },
+            { href: "/expertise", label: "Expertise" },
+            { href: "/delivery", label: "How we deliver" },
+            { href: "/about", label: "About" },
+          ].map((link) => (
+            <Link 
+              key={link.href}
+              href={link.href} 
+              onClick={() => setIsMenuOpen(false)}
+              className={pathname === link.href ? "text-black border-b-2 border-black" : "text-gray-800"}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link 
             href="/contact" 
             onClick={() => setIsMenuOpen(false)}
-            className="bg-primary text-white px-10 py-4 rounded-md"
+            className={`bg-primary text-white px-10 py-4 rounded-md ${pathname === "/contact" ? "ring-2 ring-black ring-offset-2" : ""}`}
           >
             Get in touch
           </Link>
@@ -94,13 +108,22 @@ export default function Navbar() {
 }
 
 function NavLink({ href, children }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <Link 
       href={href} 
-      className="text-sm font-semibold text-gray-800 hover:text-black transition-colors relative group"
+      className={`text-sm font-semibold transition-colors relative group ${
+        isActive ? "text-black" : "text-gray-800 hover:text-black"
+      }`}
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all group-hover:w-full"></span>
+      <span 
+        className={`absolute -bottom-1 left-0 h-0.5 bg-black transition-all ${
+          isActive ? "w-full" : "w-0 group-hover:w-full"
+        }`}
+      ></span>
     </Link>
   );
 }

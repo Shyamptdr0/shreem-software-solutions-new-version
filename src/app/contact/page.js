@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Contact Us | Shreem Software Solutions",
+  description: "Get in touch with Shreem Software Solutions to discuss your project and discover how our custom software solutions can help your business grow.",
+};
+
 export default function ContactPage() {
   const faqs = [
     { q: "How quickly do you start new projects?", a: "Typically, we can kick off a new project within 2-3 weeks of a signed agreement." },
@@ -19,12 +24,12 @@ export default function ContactPage() {
             <div className="space-y-12">
               <div>
                 <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-4">Direct Communication</span>
-                <p className="text-2xl font-medium text-gray-900">hello@shreem.com</p>
-                <p className="text-gray-500 mt-2">+91 98765 43210</p>
+                <p className="text-2xl font-medium text-gray-900"></p>
+                <p className="text-gray-500 mt-2">+91 80852 02613</p>
               </div>
               <div>
                 <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest block mb-4">Our Base</span>
-                <p className="text-xl font-medium text-gray-900">123 Tech Park, Software Avenue<br />Digital City, 560001</p>
+                <p className="text-xl font-medium text-gray-900">Indore<br />Madhya Pradesh, India</p>
               </div>
             </div>
 
@@ -42,7 +47,7 @@ export default function ContactPage() {
               </ul>
             </div>
           </div>
-          
+
           <div className="lg:col-span-7">
             <form className="space-y-6 bg-gray-50 p-8 md:p-12 rounded-[2rem]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

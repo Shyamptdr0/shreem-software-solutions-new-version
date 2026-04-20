@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Case Studies | Shreem Software Solutions",
+  description: "View our portfolio of successful projects across construction, restaurant, and education sectors, showcasing our ability to solve real-world problems with code.",
+};
+
 export default function CaseStudiesPage() {
   const featuredCases = [
     {

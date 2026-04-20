@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "How We Deliver | Shreem Software Solutions",
+  description: "Discover our agile delivery process, from discovery and prototyping to launch and support, ensuring high-quality software solutions delivered on time.",
+};
+
 export default function DeliveryPage() {
   const steps = [
     { 

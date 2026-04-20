@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Our Services | Shreem Software Solutions",
+  description: "Explore our range of software development services, including custom software, web and mobile app development, UI/UX design, and digital transformation.",
+};
+
 export default function ServicesPage() {
   const serviceCategories = [
     {

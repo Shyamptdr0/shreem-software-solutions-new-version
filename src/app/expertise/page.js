@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Our Expertise | Shreem Software Solutions",
+  description: "Learn about our technical capabilities in frontend, backend, data infrastructure, and AI innovation, and how we leverage these to build scalable digital products.",
+};
+
 export default function ExpertisePage() {
   const expertiseGroups = [
     {

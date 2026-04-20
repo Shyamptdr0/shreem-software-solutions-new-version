@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "About Us | Shreem Software Solutions",
+  description: "Learn more about Shreem Software Solutions, our mission, our values, and our commitment to delivering high-end technology solutions.",
+};
+
 export default function AboutPage() {
   return (
     <main className="pt-32 pb-24 min-h-[60vh]">
